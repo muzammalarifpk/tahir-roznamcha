@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../onBoarding/login/login_screen.dart';
 import '../../screen_buttons.dart';
-import '../../utils/strings/translation_widget.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);

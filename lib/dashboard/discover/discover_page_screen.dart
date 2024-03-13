@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:roz/utils/app_colours.dart';
-import 'package:roz/utils/settings_service.dart';
+import '../../utils/app_colours.dart';
+import '../../utils/settings_service.dart';
 
 import '../../utils/common_widgets/common_button.dart';
 import '../../utils/common_widgets/dash_board_card.dart';
@@ -134,7 +134,7 @@ class _DiscoverPageScreenState extends State<DiscoverPageScreen> {
               text: 'Sync Data',
               icon: Icons.sync,
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             SecondaryDarkButton(
               onPress: () async {
                 // Replace 'english' with the desired language code

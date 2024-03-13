@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:roz/dashboard/banks/banks_page_screen.dart';
-import 'package:roz/dashboard/contacts/contacts_page_screen.dart';
-import 'package:roz/dashboard/locations/location_page_screen.dart';
+import '../../dashboard/banks/banks_page_screen.dart';
+import '../../dashboard/contacts/contacts_page_screen.dart';
+import '../../dashboard/locations/location_page_screen.dart';
 
 import '../../dashboard/discover/discover_page_screen.dart';
 import '../../dashboard/products/product_page_screen.dart';
