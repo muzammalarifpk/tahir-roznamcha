@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:roz/utils/common_colours.dart';
-import 'dashboard/discover/discover_screen.dart';
+import 'package:roz/dashboard/locations/location_page_screen.dart';
+import 'package:roz/utils/app_colours.dart';
+import 'package:roz/utils/strings/translation_widget.dart';
+import 'dashboard/banks/banks_page_screen.dart';
+import 'dashboard/contacts/contacts_page_screen.dart';
+import 'dashboard/discover/discover_page_screen.dart';
+import 'dashboard/products/product_page_screen.dart';
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({Key? key}) : super(key: key);
+
   static const String routeName = '/entryPoint';
 
   static Route route() {
@@ -19,9 +24,11 @@ class EntryPoint extends StatefulWidget {
 
 class _EntryPointState extends State<EntryPoint> {
   final List _pages = const [
-    DiscoverPageScreen(), DiscoverPageScreen(), DiscoverPageScreen(),
-    DiscoverPageScreen(), DiscoverPageScreen(),
-    // ... other pages here
+    ProductPageScreen(),
+    ContactPageScreen(),
+    DiscoverPageScreen(),
+    LocationPageScreen(),
+    BankPageScreen(),
   ];
   int _currentIndex = 0;
 
@@ -51,17 +58,13 @@ class _EntryPointState extends State<EntryPoint> {
             _buildTabItem(
               label: "Products",
               icon: Icon(Icons.production_quantity_limits,
-                  color: _currentIndex == 0
-                      ? CustomColors.black
-                      :  CustomColors.grey),
+                  color: _currentIndex == 0 ? AppColors.black : AppColors.grey),
               index: 0,
             ),
             _buildTabItem(
               label: "Contacts",
               icon: Icon(Icons.contacts_rounded,
-                  color: _currentIndex == 1
-                      ? CustomColors.black
-                      :  CustomColors.grey),
+                  color: _currentIndex == 1 ? AppColors.black : AppColors.grey),
               index: 1,
             ),
 
@@ -70,17 +73,13 @@ class _EntryPointState extends State<EntryPoint> {
             _buildTabItem(
               label: "Locations",
               icon: Icon(Icons.location_on,
-                  color: _currentIndex == 3
-                      ? CustomColors.black
-                      : CustomColors.grey),
+                  color: _currentIndex == 3 ? AppColors.black : AppColors.grey),
               index: 3,
             ),
             _buildTabItem(
               label: "Banks",
               icon: Icon(Icons.local_atm,
-                  color: _currentIndex == 4
-                      ? CustomColors.black
-                      : CustomColors.grey),
+                  color: _currentIndex == 4 ? AppColors.black : AppColors.grey),
               index: 4,
             ),
           ],
@@ -92,7 +91,7 @@ class _EntryPointState extends State<EntryPoint> {
         height: 56.0,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: CustomColors.theme,
+          color: AppColors.cardText,
         ),
         child: Material(
           color: Colors.transparent,
@@ -103,7 +102,7 @@ class _EntryPointState extends State<EntryPoint> {
             borderRadius: BorderRadius.circular(28.0),
             child: const Center(
               child: Icon(
-                Icons.add,
+                Icons.home_filled,
                 color: Colors.white,
               ),
             ),
@@ -125,10 +124,10 @@ class _EntryPointState extends State<EntryPoint> {
         mainAxisSize: MainAxisSize.min,
         children: [
           icon,
-          Text(
+          AppText(
             label,
             style: TextStyle(
-              color: _currentIndex == index ? CustomColors.black : CustomColors.grey,
+              color: _currentIndex == index ? AppColors.black : AppColors.grey,
             ),
           ),
         ],

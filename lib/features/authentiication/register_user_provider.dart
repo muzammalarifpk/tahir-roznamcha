@@ -1,9 +1,4 @@
-import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/foundation.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:http/http.dart' as http;
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 class RegisterUserProvider extends ChangeNotifier {

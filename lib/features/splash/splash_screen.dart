@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../../entry_point.dart';
+import '../../onBoarding/login/login_screen.dart';
+import '../../screen_buttons.dart';
+import '../../utils/strings/translation_widget.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
@@ -11,8 +11,9 @@ class SplashScreenPage extends StatefulWidget {
 
   static Route route() {
     return MaterialPageRoute(
-        builder: (_) => const SplashScreenPage(),
-        settings: const RouteSettings(name: routeName));
+      builder: (_) => const SplashScreenPage(),
+      settings: const RouteSettings(name: routeName),
+    );
   }
 
   @override
@@ -25,10 +26,13 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     super.initState();
     // Navigate to the login page after 3 seconds
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 4),
           () => Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const EntryPoint()),
+        MaterialPageRoute(builder: (context) => const
+        // LoginPageScreen(),
+        ScreenButtons(),
+        ),
       ),
     );
   }
@@ -36,18 +40,23 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const Text("hello tahir"),
-          CachedNetworkImage(
-            imageUrl: 'https://app.junetheapp.com/app-assets/splash.png',
-            fit: BoxFit.cover,
-            height: MediaQuery.of(context).size.height,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/svg/splash.jpg'),
+            fit: BoxFit.cover, // Use BoxFit.cover to stretch the image
           ),
-        ],
+        ),
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 300),
+
+          ],
+        ),
       ),
     );
   }
 }
-
-

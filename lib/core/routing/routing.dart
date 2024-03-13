@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:roz/dashboard/banks/banks_page_screen.dart';
+import 'package:roz/dashboard/contacts/contacts_page_screen.dart';
+import 'package:roz/dashboard/locations/location_page_screen.dart';
 
+import '../../dashboard/discover/discover_page_screen.dart';
+import '../../dashboard/products/product_page_screen.dart';
 import '../../entry_point.dart';
 import '../../features/splash/splash_screen.dart';
+import '../../onBoarding/login/login_screen.dart';
+import '../../onBoarding/register/signup_screen.dart';
+import '../../utils/strings/translation_widget.dart';
 
 
 class AppRouter {
@@ -13,11 +21,11 @@ class AppRouter {
       // case '/':
       //   return SplashScreenPage.route();
       // case '/onBoardingPage':
-    //     return OnBoardingPageScreen.route();
-    //   case '/signUpPage':
-    //     return SignUpScreenPage.route();
-    //   case '/loginPage':
-    //     return LoginPageScreen.route();
+      //   return OnBoardingPageScreen.route();
+      case '/signUpPage':
+        return SignUpScreenPage.route();
+      case '/loginPage':
+        return LoginPageScreen.route();
     //   case '/forgetPass':
     //     return ForgotPasswordPage.route();
     //   case '/setUpScreen':
@@ -25,13 +33,21 @@ class AppRouter {
     // //by tahir
     //   case '/setUp':
     //     return CheckInScreen.route();
-    //   case '/entryPoint':
-    //     return EntryPoint.route();
+      case '/discoverScreen':
+        return DiscoverPageScreen.route();
+      case '/productScreen':
+        return ProductPageScreen.route();
+      case '/contactScreen':
+        return ContactPageScreen.route();
+        case '/locationScreen':
+        return LocationPageScreen.route();
+        case '/bankScreen':
+        return BankPageScreen.route();
     //   case '/discoverScreen':
     //     return EntryPoint.route();
     //   case '/profileScreen':
     //     return EntryPoint.route();
-      case '/receivedScreen':
+      case '/entryPoint':
         return EntryPoint.route();
     //   case '/generalScreens':
     //     return GeneralNavigationScreens.route();
@@ -54,8 +70,6 @@ class AppRouter {
     //     return UpdateProfileView.route();
     //   case '/changePass':
     //     return ChangePassword.route();
-
-
       default:
         return _errorRoute();
     }
@@ -65,7 +79,8 @@ class AppRouter {
     return MaterialPageRoute(
         builder: (_) => const Scaffold(
           body: Center(
-            child: Text("Error Fetching Data"),
+            child: AppText(
+                "Error Fetching Data"),
           ),
         ),
         settings: const RouteSettings(name: '/error'));

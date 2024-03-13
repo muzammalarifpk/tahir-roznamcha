@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:roz/utils/app_theme.dart';
 import 'core/multi_providers/multi_providers.dart';
 import 'core/routing/routing.dart';
 
 void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('settingBox');
+
   runApp(const MyApp());
 }
 
